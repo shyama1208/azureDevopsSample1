@@ -13,7 +13,7 @@ stages:
     - script: echo My dev job
 - stage: QA1
   dependsOn: dev
-  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'))
+  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'), eq(variables[patchversion],'101'))
   jobs:
   - job: QAJob
     displayName: QA1
