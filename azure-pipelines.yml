@@ -1,5 +1,5 @@
 variables:
-  major: 2
+  major: 21
   minor: 1
   system.debug: true
   # creates a counter called versioncounter and seeds it at 100 and then assigns the value to a variable named patch.
@@ -12,6 +12,8 @@ stages:
     continueOnError: true
     steps:
     - script: echo My dev job
+    - script: echo Major version is $(major)
+    - script: echo patch version is $(patch)
 - stage: QA1
   dependsOn: dev
   condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'), eq(variables['patchversion'],'101'))
