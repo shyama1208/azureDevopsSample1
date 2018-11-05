@@ -18,8 +18,7 @@ stages:
 - stage: QA1
   dependsOn: dev
   condition: |
-    and(succeeded(), 
-    or(in(variables['triggerBranch'], 'features'), in(variables['Build.Reason'], 'releases'))
+    and(succeeded(),     
     eq(variables['major'],'21'))
   jobs:
   - job: QAJob
