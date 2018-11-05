@@ -51,4 +51,4 @@ stages:
     - ProdJob3
     continueOnError: true
     steps:
-- script: echo My first job
+    - script: echo My first job
