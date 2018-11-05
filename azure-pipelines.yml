@@ -19,8 +19,7 @@ stages:
   dependsOn: dev
   condition: |
     and(succeeded(), 
-      or(in(variables['triggerBranch'], 'features'), 
-      in(variables['triggerBranch'], 'releases')),
+    or(in(variables['triggerBranch'], 'features'), in(variables['triggerBranch'], 'releases')),
     eq(variables['major'],'21'))
   jobs:
   - job: QAJob
