@@ -19,7 +19,7 @@ stages:
   condition: |
     and(succeeded(), 
     ne(variables['Build.Reason'], 'PullRequest'), 
-    eq(variables['major'],'28'))
+    eq(variables['major'],'21'))
   jobs:
   - job: QAJob
     displayName: QA1
