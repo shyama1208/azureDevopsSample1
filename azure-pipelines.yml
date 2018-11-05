@@ -16,7 +16,7 @@ stages:
     - script: echo patch version is $(patch)
 - stage: QA1
   dependsOn: dev
-  condition: >-
+  condition: |-
   and(succeeded(), 
   ne(variables['Build.Reason'], 'PullRequest'), 
   eq(variables['major'],'21'))
