@@ -18,10 +18,14 @@ stages:
 - stage: QA1
   dependsOn: dev
   condition: |
-    and(succeeded(),
-      or(eq(variables['minor'],'5'),
-        eq(variables['minor'],'6')),
-      eq(variables['major'],'21'))
+    and(
+      succeeded(), 
+      or(
+        eq(variables['minor'],'5'), 
+        eq(variables['minor'],'6')
+        ),
+      eq(variables['major'],'21')
+      )
   jobs:
   - job: QAJob
     displayName: QA1
