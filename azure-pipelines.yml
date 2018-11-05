@@ -17,9 +17,9 @@ stages:
 - stage: QA1
   dependsOn: dev
   condition: |
-  and(succeeded(), 
-  ne(variables['Build.Reason'], 'PullRequest'), 
-  eq(variables['major'],'28'))
+    and(succeeded(), 
+    ne(variables['Build.Reason'], 'PullRequest'), 
+    eq(variables['major'],'28'))
   jobs:
   - job: QAJob
     displayName: QA1
