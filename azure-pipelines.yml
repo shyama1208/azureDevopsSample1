@@ -1,7 +1,7 @@
 variables:
   triggerBranch: features/mynewfeature
   major: 21
-  minor: 1
+  minor: 5
   system.debug: true
   # creates a counter called versioncounter and seeds it at 100 and then assigns the value to a variable named patch.
   patch: $[counter('patchversion', 100)]
@@ -19,7 +19,7 @@ stages:
   dependsOn: dev
   condition: |
     and(succeeded(), 
-    or(in(variables['triggerBranch'], 'features'), in(variables['triggerBranch'], 'releases')),
+    or(eq(variables['minor'],'5'), eq(variables['minor'],'6')),
     eq(variables['major'],'21'))
   jobs:
   - job: QAJob
