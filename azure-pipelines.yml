@@ -5,7 +5,7 @@ stages:
     displayName: Dev Job
     continueOnError: true
     steps:
-    - script: echo My first job
+    - script: echo My dev job
 - stage: QA1
   dependsOn: dev
   jobs:
@@ -13,7 +13,7 @@ stages:
     displayName: QA1
     continueOnError: true
     steps:
-    - script: echo My first job
+    - script: echo My QA1 job
 - stage: QA2
   dependsOn: dev
   jobs:
@@ -21,7 +21,7 @@ stages:
     displayName: QA2
     continueOnError: true
     steps:
-    - script: echo My first job
+    - script: echo My QA2 job
 - stage: Prod
   dependsOn:
   - QA1
