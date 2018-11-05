@@ -16,7 +16,7 @@ stages:
     - script: echo patch version is $(patch)
 - stage: QA1
   dependsOn: dev
-  condition: and(succeeded(), ne(variables['Build.Reason'], 'PullRequest'), eq(variables['patchversion'],'103'))
+  condition: and(succeeded(), eq(variables['patch'],'104'))
   jobs:
   - job: QAJob
     displayName: QA1
