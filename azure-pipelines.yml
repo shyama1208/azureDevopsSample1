@@ -19,7 +19,8 @@ stages:
   dependsOn: dev
   condition: |
     and(succeeded(), 
-    or(eq(variables['minor'],'5'), eq(variables['minor'],'6')),
+      or(eq(variables['minor'],'5'), 
+      eq(variables['minor'],'6')),
     eq(variables['major'],'21'))
   jobs:
   - job: QAJob
