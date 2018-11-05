@@ -1,5 +1,5 @@
 variables:
-  triggerBranch: features/*
+  triggerBranch: features/mynewfeature
   major: 21
   minor: 1
   system.debug: true
@@ -18,7 +18,8 @@ stages:
 - stage: QA1
   dependsOn: dev
   condition: |
-    and(succeeded(),     
+    and(succeeded(), 
+    or(in(variables['triggerBranch'], 'features'), in(variables['triggerBranch'], 'releases'))
     eq(variables['major'],'21'))
   jobs:
   - job: QAJob
